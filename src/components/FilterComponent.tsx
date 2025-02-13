@@ -23,7 +23,7 @@ const FilterComponent: React.FC = () => {
                     <option value="de">French</option>
                     <option value="ru">French</option>
                     <option value="es">French</option>
-                    {/* Ajoutez d'autres langues selon vos besoins */}
+                    {/* Ajouter d'autres langues si besoin */}
                 </select>
             </label>
             <label>
