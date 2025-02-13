@@ -17,12 +17,12 @@ const FilterComponent: React.FC = () => {
                     <option value="">All</option>
                     <option value="en">English</option>
                     <option value="fr">French</option>
-                    <option value="ar">French</option>
-                    <option value="zh">French</option>
-                    <option value="nl">French</option>
-                    <option value="de">French</option>
-                    <option value="ru">French</option>
-                    <option value="es">French</option>
+                    <option value="ar">Arabic</option>
+                    <option value="zh">Chinese</option>
+                    <option value="nl">Dutch</option>
+                    <option value="de">German</option>
+                    <option value="ru">Russian</option>
+                    <option value="es">Spanish</option>
                     {/* Ajouter d'autres langues si besoin */}
                 </select>
             </label>
