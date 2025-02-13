@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -8,14 +9,18 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-container">
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Rechercher un livre..."
-      />
-      <button onClick={handleSearch}>Rechercher</button>
+    <div className="search-section">
+      <div className="search-box">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search for books"
+        />
+        <button onClick={handleSearch}>
+          <FaSearch />
+        </button>
+      </div>
     </div>
   );
 };

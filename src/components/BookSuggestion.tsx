@@ -1,20 +1,22 @@
-import { FaStar } from "react-icons/fa";
-
 interface BookProps {
   title: string;
-  rating: number;
+  author: string;
+  cover: string;
+  price: string;
 }
 
-const BookSuggestion = ({ title, rating }: BookProps) => {
+const BookSuggestion = ({ title, author, cover, price }: BookProps) => {
   return (
     <div className="book-card">
-      <h2 className="book-title">{title}</h2>
-      <div className="stars">
-        {Array.from({ length: 5 }, (_, index) => (
-          <FaStar key={index} color={index < rating ? "gold" : "#ddd"} />
-        ))}
+      <div
+        className="book-cover"
+        style={{ backgroundImage: `url(${cover})` }}
+      ></div>
+      <div className="book-details">
+        <h3 className="book-title">{title}</h3>
+        <p className="book-author">{author}</p>
+        <p className="book-price">{price}</p>
       </div>
-      <input type="text" placeholder="Donnez votre avis" />
     </div>
   );
 };

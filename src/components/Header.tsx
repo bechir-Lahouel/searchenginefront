@@ -1,13 +1,20 @@
-import { FaBars, FaBook } from "react-icons/fa";
-
 const Header = () => {
   return (
-    <header>
-      <h1>
-        <FaBook /> Bibliothèque en ligne
-      </h1>
-      <FaBars style={{ cursor: "pointer" }} />
-    </header>
+    <div className="top-bar">
+      {/* Logo */}
+      <div className="logo">
+        📖 BigBook
+      </div>
+
+      {/* Liens de navigation */}
+      <div className="nav-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+
+      {/* Bouton d'inscription */}
+      <button className="register-btn">Register</button>
+    </div>
   );
 };
 
