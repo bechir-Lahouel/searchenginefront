@@ -6,26 +6,28 @@ interface Book {
     title: string;
     authors: { name: string }[];
     languages: string[];
-    // Ajoutez d'autres champs si nécessaire
+    subjects?: string[];
+    formats: { [key: string]: string };
 }
 
 interface BookContextType {
     books: Book[];
-    setFilters: React.Dispatch<React.SetStateAction<{ language: string }>>;
+    setFilters: React.Dispatch<React.SetStateAction<{ language: string; subject: string }>>;
 }
 
 export const BookContext = createContext<BookContextType | undefined>(undefined);
 
 export const BookProvider = ({ children }: { children: ReactNode }) => {
     const [books, setBooks] = useState<Book[]>([]);
-    const [filters, setFilters] = useState({ language: '' });
+    const [filters, setFilters] = useState({ language: '', subject: '' });
 
     useEffect(() => {
         fetchBooks().then(data => setBooks(data));
     }, []);
 
     const filteredBooks = books.filter(book =>
-        filters.language ? book.languages.includes(filters.language) : true
+        (filters.language ? book.languages.includes(filters.language) : true) &&
+        (filters.subject ? book.subjects?.some(sub => sub.toLowerCase().includes(filters.subject.toLowerCase())) : true)
     );
 
     return (
