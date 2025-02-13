@@ -4,7 +4,7 @@ import { BookContext } from '../context/BookContext';
 const FilterComponent: React.FC = () => {
     const { setFilters } = useContext(BookContext)!;
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
         const { name, value } = event.target;
         setFilters(prevFilters => ({ ...prevFilters, [name]: value }));
     };
@@ -17,10 +17,19 @@ const FilterComponent: React.FC = () => {
                     <option value="">All</option>
                     <option value="en">English</option>
                     <option value="fr">French</option>
+                    <option value="ar">French</option>
+                    <option value="zh">French</option>
+                    <option value="nl">French</option>
+                    <option value="de">French</option>
+                    <option value="ru">French</option>
+                    <option value="es">French</option>
                     {/* Ajoutez d'autres langues selon vos besoins */}
                 </select>
             </label>
-            {/* Ajoutez d'autres filtres comme l'auteur, le sujet, etc. */}
+            <label>
+                Subject:
+                <input type="text" name="subject" placeholder="Enter subject" onChange={handleChange} />
+            </label>
         </div>
     );
 };
