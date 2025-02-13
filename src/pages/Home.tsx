@@ -20,7 +20,13 @@ const Home: React.FC = () => {
                 <h2>New</h2>
                 <div className="popular-books">
                     {books.map((book, index) => (
-                        <BookSuggestion key={index} {...book} />
+                        <BookSuggestion
+                            key={index}
+                            title={book.title}
+                            author={book.authors.map(author => author.name).join(', ')}
+                            cover={book.formats['image/jpeg'] || 'default-cover-url'}
+                            subjects={book.subjects}
+                        />
                     ))}
                 </div>
             </section>
