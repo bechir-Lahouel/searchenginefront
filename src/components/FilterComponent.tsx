@@ -30,6 +30,10 @@ const FilterComponent: React.FC = () => {
                 Subject:
                 <input type="text" name="subject" placeholder="Enter subject" onChange={handleChange} />
             </label>
+            <label>
+                Author:
+                <input type="text" name="author" placeholder="Enter author" onChange={handleChange} />
+            </label>
         </div>
     );
 };

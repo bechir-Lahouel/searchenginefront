@@ -12,14 +12,14 @@ interface Book {
 
 interface BookContextType {
     books: Book[];
-    setFilters: React.Dispatch<React.SetStateAction<{ language: string; subject: string, title: string }>>;
+    setFilters: React.Dispatch<React.SetStateAction<{ language: string; subject: string, title: string, author: string }>>;
 }
 
 export const BookContext = createContext<BookContextType | undefined>(undefined);
 
 export const BookProvider = ({ children }: { children: ReactNode }) => {
     const [books, setBooks] = useState<Book[]>([]);
-    const [filters, setFilters] = useState({ language: '', subject: '', title: ''});
+    const [filters, setFilters] = useState({ language: '', subject: '', title: '', author: ''});
 
     useEffect(() => {
         fetchBooks().then(data => setBooks(data));
@@ -28,7 +28,9 @@ export const BookProvider = ({ children }: { children: ReactNode }) => {
     const filteredBooks = books.filter(book =>
         (filters.language ? book.languages.includes(filters.language) : true) &&
         (filters.subject ? book.subjects?.some(sub => sub.toLowerCase().includes(filters.subject.toLowerCase())) : true) &&
-        (filters.title ? book.title.toLowerCase().includes(filters.title.toLowerCase()) : true)
+        (filters.title ? book.title.toLowerCase().includes(filters.title.toLowerCase()) : true) &&
+        (filters.author ? book.authors.some(author => author.name.toLowerCase().includes(filters.author.toLowerCase())) : true)
+
     );
 
     return (

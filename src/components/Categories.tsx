@@ -19,7 +19,7 @@ const Categories = () => {
       <h2>Select from category</h2>
       <div className="category-container">
         {categories.map((cat, index) => (
-            <div key={index} className="category-card" onClick={() => setFilters({ language: '', title: '', subject: cat.text }) }>
+            <div key={index} className="category-card" onClick={() => setFilters({ language: '', title: '', subject: cat.text, author: ''}) }>
             <div className="category-icon">{cat.icon}</div>
             <p>{cat.text}</p>
             </div>
