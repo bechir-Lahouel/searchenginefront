@@ -6,7 +6,7 @@ const Banner = () => {
     const { setFilters } = useContext(BookContext)!;
     
     const handleSearch = () => {
-      setFilters(prevFilters => ({ ...prevFilters, title: query }));
+      setFilters({ language: '', subject: '', title: query });
     };
 
     return (
