@@ -1,14 +1,14 @@
-import { FaBookOpen, FaHeadphones, FaStar, FaHeart, FaMagic, FaTheaterMasks } from "react-icons/fa";
+import { FaBookOpen, FaHeadphones, FaStar, FaHeart, FaMagic, FaTheaterMasks, FaChild, FaMusic, FaDragon, FaArtstation } from "react-icons/fa";
 import { BookContext } from '../context/BookContext';
 import { useContext } from "react";
 
 const categories = [
-  { icon: <FaBookOpen />, text: "Arts & Architect" },
-  { icon: <FaHeadphones />, text: "Children" },
-  { icon: <FaStar />, text: "History" },
+  { icon: <FaArtstation />, text: "Arts & Architect" },
+  { icon: <FaChild />, text: "Children" },
+  { icon: <FaBookOpen />, text: "History" },
   { icon: <FaHeart />, text: "Romance" },
-  { icon: <FaMagic />, text: "Music" },
-  { icon: <FaTheaterMasks />, text: "Fantasy" },
+  { icon: <FaMusic />, text: "Music" },
+  { icon: <FaDragon />, text: "Fantasy" },
 ];
 
 const Categories = () => {
